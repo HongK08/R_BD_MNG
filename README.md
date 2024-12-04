@@ -51,14 +51,14 @@ tooltip
 1안 또는 filter안으로 그리면 된다 filter(str_detect())+select() 해주면 되니까
 #그럼 kormap2
     #KORPOP2
+    
+  korpop2_kangwon = korpop2 %>%
+    filter((code>=32000) & (code <33000)) %>% ## 이거 아니면 str_detect 쓰던지 맘대로 해볼것
+    select(code, 총인구_명 행정구역별_읍면동)
+  korpop2_kangwon
   
-korpop2_kangwon = korpop2 %>%
-  filter((code>=32000) & (code <33000)) %>% ## 이거 아니면 str_detect 쓰던지 맘대로 해볼것
-  select(code, 총인구_명 행정구역별_읍면동)
-korpop2_kangwon
-
-ggChoropleth(kormap2_kangWon, aes(fill=총인구_명,map_id = code , tooltip = 행정구역별_읍면동), map=kormap2 , interactive = T)
-
-#이걸 통해 알수있는거 지도 데이터+지도에 표시할 데이터+중심축 이 필수적이라는 거읾..
+  ggChoropleth(kormap2_kangWon, aes(fill=총인구_명,map_id = code , tooltip = 행정구역별_읍면동), map=kormap2 , interactive = T)
+  
+  #이걸 통해 알수있는거 지도 데이터+지도에 표시할 데이터+중심축 이 필수적이라는 거읾..
 
 
