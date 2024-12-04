@@ -51,7 +51,6 @@ tooltip
 1안 또는 filter안으로 그리면 된다 filter(str_detect())+select() 해주면 되니까
 
   #KORPOP2 
-  
   korpop2_kangwon = korpop2 %>%
     filter((code>=32000) & (code <33000)) %>%                                     ## 이거 아니면 str_detect 쓰던지 맘대로 해볼것
     select(code, 총인구_명 행정구역별_읍면동)
