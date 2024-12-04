@@ -50,13 +50,13 @@ tooltip
 여기서 인구수까지 보고싶으면 2항의 내용을 가져와서
 1안 또는 filter안으로 그리면 된다 filter(str_detect())+select() 해주면 되니까
 
-  #KORPOP2 
-  korpop2_kangwon = korpop2 %>%
-    filter((code>=32000) & (code <33000)) %>%                                     ## 이거 아니면 str_detect 쓰던지 맘대로 해볼것
-    select(code, 총인구_명 행정구역별_읍면동)
-  korpop2_kangwon
-  ggChoropleth(kormap2_kangWon, aes(fill=총인구_명,map_id = code , tooltip = 행정구역별_읍면동), map=kormap2 , interactive = T)
-  
-                                                  #이걸 통해 알수있는거 지도 데이터+지도에 표시할 데이터+중심축 이 필수적이라는 거읾..
+    #KORPOP2 
+    korpop2_kangwon = korpop2 %>%
+      filter((code>=32000) & (code <33000)) %>%                                     ## 이거 아니면 str_detect 쓰던지 맘대로 해볼것
+      select(code, 총인구_명 행정구역별_읍면동)
+    korpop2_kangwon
+    ggChoropleth(kormap2_kangWon, aes(fill=총인구_명,map_id = code , tooltip = 행정구역별_읍면동), map=kormap2 , interactive = T)
+    
+                                                    #이걸 통해 알수있는거 지도 데이터+지도에 표시할 데이터+중심축 이 필수적이라는 거읾..
 
 
