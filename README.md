@@ -33,4 +33,32 @@ vote%>%
   geom_polygon(color='red') + theme_void()
 
 
+# 한국 지도에서 상세 지도 그려보기
+
+kormaps2014 불러오기
+korpop1
+
+대충 단계 구분도의 조건 DATA , aes(fill, map_id, tooltip= 지정해주고)+interective set.
+tooltip
+
+1.데이터가 있어야 함 + 전처리
+2. kormap - korpop1/2(상세인구수를 표현해서 보여줌) - 상세지역 이 순서로 지정을 해주어야 함
+3. dataset을 df로 전환 후 총인구() , 대충 상세적으로 더 진입() 
+
+이렇게하던지 filter박아서 %>% 로 넘기던지 
+
+여기서 인구수까지 보고싶으면 2항의 내용을 가져와서
+1안 또는 filter안으로 그리면 된다 filter(str_detect())+select() 해주면 되니까
+#그럼 kormap2
+    #KORPOP2
+  
+korpop2_kangwon = korpop2 %>%
+  filter((code>=32000) & (code <33000)) %>% ## 이거 아니면 str_detect 쓰던지 맘대로 해볼것
+  select(code, 총인구_명 행정구역별_읍면동)
+korpop2_kangwon
+
+ggChoropleth(kormap2_kangWon, aes(fill=총인구_명,map_id = code , tooltip = 행정구역별_읍면동), map=kormap2 , interactive = T)
+
+#이걸 통해 알수있는거 지도 데이터+지도에 표시할 데이터+중심축 이 필수적이라는 거읾..
+
 
