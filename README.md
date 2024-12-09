@@ -127,15 +127,15 @@ tooltip
 
 # 여기까지가 지도 그리기였구 이제는 지도 셋에 데이터를 추가해보자
 
-## 서울에서의 코로나 지도 그리기
-CV_UN_DT = kormaps2014::korpop3
-CV_UN_DA = kormaps2014::kormap3
-COVID_MM = read_excel('C:/Users/user/Desktop/FN.xlsx')
-
-DT_DST<- df1 %>%> left_join()
-
-
-korpop3_SUL_CORONA_M = DT_DST %>%
-  filter(str_detect(code, '^32'))%>%
-  select(code, 누적확진자_명 , 누적사망자_명)
-ggChoropleth(korpop3_SUL_CORONA_M, aes(fill = 누적확진자_명 , map_id = code, tooltip =시군구),map = kormap2, interactive = T)
+    ## 서울에서의 코로나 지도 그리기
+    CV_UN_DT = kormaps2014::korpop3
+    CV_UN_DA = kormaps2014::kormap3
+    COVID_MM = read_excel('C:/Users/user/Desktop/FN.xlsx')
+    
+    DT_DST<- df1 %>%> left_join()
+    
+    
+    korpop3_SUL_CORONA_M = DT_DST %>%
+      filter(str_detect(code, '^32'))%>%
+      select(code, 누적확진자_명 , 누적사망자_명)
+    ggChoropleth(korpop3_SUL_CORONA_M, aes(fill = 누적확진자_명 , map_id = code, tooltip =시군구),map = kormap2, interactive = T)
